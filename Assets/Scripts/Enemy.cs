@@ -28,9 +28,8 @@ public class Enemy : MonoBehaviour
     }
 
     public void moveToPlayer() {
-        transform.LookAt(target.position);
 
-        //transform.Translate(new Vector3(speed * Time.deltaTime, 0, speed * Time.deltaTime));
+        transform.LookAt(target.position);
         transform.position += transform.forward * movementSpeed * Time.deltaTime;
     }
 
