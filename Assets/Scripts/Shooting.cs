@@ -8,7 +8,7 @@ public class Shooting : MonoBehaviour
     public GameObject bulletPrefab;
     [SerializeField]
     public float roundsPerMinute = 120;
-    public float coolDownTime = 0;
+    public float coolDownTime = 0.1f;
 
     public float bulletForce = 20f;
 
