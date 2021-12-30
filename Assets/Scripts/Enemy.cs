@@ -2,8 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class Enemy : MonoBehaviour
-{
-    public Transform target;
+{   
+    
+    private GameObject target;
     [SerializeField]
     public float movementSpeed = 3f;
     [SerializeField]
@@ -12,20 +13,20 @@ public class Enemy : MonoBehaviour
     public float minDistance = 2f;
     void Start()
     {
-  
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, target.position) >= minDistance) {
+        if (Vector3.Distance(transform.position, target.transform.position) >= minDistance) {
             moveToPlayer();
         }
     }
 
     public void moveToPlayer() {
 
-        transform.LookAt(target.position);
+        transform.LookAt(target.transform.position);
         transform.position += transform.forward * movementSpeed * Time.deltaTime;
     }
 
