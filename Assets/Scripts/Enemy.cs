@@ -9,14 +9,10 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     public float health = 3f;
 
-    private MeshRenderer meshRenderer;
-    private Color originalColor;
-
     public float minDistance = 2f;
     void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
-        originalColor = meshRenderer.material.color;
+  
     }
 
     // Update is called once per frame
@@ -52,18 +48,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             takeDamage();
-            StartCoroutine(changeColor());
+            
         }
     }
 
-    private IEnumerator changeColor()
-    {
-        meshRenderer.material.color = Color.yellow;
-        // yield says: return to main thread, renderer the frame
-        // and continue from here in the next frame
-        // WaitForseconds .. does exactly this
-        yield return new WaitForSeconds(0.2f);
-
-        meshRenderer.material.color = originalColor;
-    }
 }

@@ -34,7 +34,11 @@ public class MousePosition : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
             cursorPosition = transform.position = raycastHit.point;
-            player.transform.LookAt(new Vector3(cursorPosition.x, 1f, cursorPosition.z));
+            //player.transform.LookAt(new Vector3(cursorPosition.x, 1f, cursorPosition.z));
+            //player.transform.LookAt(cursorPosition);
+            Vector3 direction = cursorPosition - player.transform.position;
+            direction.y = 0;
+            player.transform.rotation = Quaternion.LookRotation(direction);
         }
     }
 }
