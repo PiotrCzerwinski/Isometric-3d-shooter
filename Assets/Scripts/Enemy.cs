@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     private Vector3 forward;
 
     public float minDistance = 2f;
+
+    private float distanceToGround;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
@@ -33,6 +35,13 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         moveToPlayer();
+
+        if (!isGrounded())
+        {
+            Vector3 temp = this.transform.position;
+            temp.y = 0.2f;
+            transform.position = temp;
+        }
     }
 
     public void moveToPlayer() {
@@ -65,5 +74,8 @@ public class Enemy : MonoBehaviour
             
         }
     }
-
+    bool isGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
+    }
 }
