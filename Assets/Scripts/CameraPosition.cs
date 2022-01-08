@@ -5,10 +5,13 @@ using UnityEngine;
 public class CameraPosition : MonoBehaviour
 {
     public Transform player;
+    private Camera cam;
     private Vector3 offset;
     void Start()
     {
         offset = transform.position - player.transform.position;
+        cam = gameObject.GetComponentInChildren(typeof(Camera)) as Camera;
+        cam.transform.LookAt(player.transform.position);
     }
 
     // Update is called once per frame

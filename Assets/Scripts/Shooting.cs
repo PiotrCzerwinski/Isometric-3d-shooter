@@ -9,8 +9,8 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     public float roundsPerMinute = 120;
     public float coolDownTime = 0.1f;
-
-    public float bulletForce = 20f;
+    [SerializeField]
+    public float bulletForce = 10f;
 
     private void Start()
     {

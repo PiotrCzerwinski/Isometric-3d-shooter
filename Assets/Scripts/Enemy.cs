@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     public float health = 3f;
     private Vector3 forward;
-
+    [SerializeField]
     public float minDistance = 2f;
 
     private float distanceToGround;
@@ -34,12 +34,13 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        moveToPlayer();
+        if (Vector3.Distance(transform.position, target.transform.position) >= minDistance)
+            moveToPlayer();
 
         if (!isGrounded())
         {
             Vector3 temp = this.transform.position;
-            temp.y = 0.2f;
+            temp.y = 0.05f;
             transform.position = temp;
         }
     }

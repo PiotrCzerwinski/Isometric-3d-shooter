@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isGrounded()) {
             Vector3 temp = transform.position;
-            temp.y = 0.2f;
+            temp.y = 0.05f;
             transform.position = temp;
         }
 
@@ -54,6 +54,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     bool isGrounded() {
-        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
+        return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.05f);
     }
 }
