@@ -1165,6 +1165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1461257147}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &208744716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6248,7 +6249,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!1001 &1465762690
 PrefabInstance:
