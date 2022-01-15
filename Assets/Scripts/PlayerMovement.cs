@@ -39,11 +39,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("speed", controller.velocity.magnitude);
         }
 
-        if (!isGrounded()) {
+       /* if (!isGrounded()) {
             Vector3 temp = transform.position;
             temp.y = 0.05f;
             transform.position = temp;
-        }
+        }*/
 
         animator.SetFloat("speed", controller.velocity.magnitude);
         //Vector3 lookingDirection = cursor.transform.position - transform.position;
