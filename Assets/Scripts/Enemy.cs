@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
+    private GameObject gameManager;
+
     private Rigidbody rb;
     private GameObject target;
     [SerializeField]
@@ -16,6 +18,7 @@ public class Enemy : MonoBehaviour
     private float distanceToGround;
     void Start()
     {
+        gameManager = GameObject.Find("GameManager");
         target = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
         forward = Camera.main.transform.forward;
@@ -53,6 +56,8 @@ public class Enemy : MonoBehaviour
         if (health == 0)
         {
             Destroy(gameObject);
+            gameManager.GetComponent<GameSystem>().enemiesCount--;
+
             
         }
         else {
