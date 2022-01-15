@@ -8,8 +8,6 @@ public class MousePosition : MonoBehaviour
     private Camera camera;
     public Transform player;
     private Vector3 cursorPosition;
-    float playerAngle;
-    public float rotationSpeed;
     void Start()
     {
     }

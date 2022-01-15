@@ -26,11 +26,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* if (Vector3.Distance(transform.position, target.transform.position) >= minDistance)
-         {
-             moveToPlayer();
-         }*/
-        //moveToPlayer();
+
     }
     private void FixedUpdate()
     {
@@ -48,7 +44,6 @@ public class Enemy : MonoBehaviour
     public void moveToPlayer() {
 
         Vector3 playerPosition = Vector3.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
-        //rb.velocity += transform.forward * movementSpeed;
         rb.MovePosition(playerPosition);
         transform.LookAt(target.transform);
     }
