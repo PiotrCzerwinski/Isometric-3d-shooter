@@ -1405,7 +1405,8 @@ MonoBehaviour:
   health: 3
   stoppingDistance: 1
   reachPlayerDistance: 10
-  sightDistance: 6
+  sightDistance: 8
+  knockbackStrength: 1
 --- !u!1 &5407120497737375691
 GameObject:
   m_ObjectHideFlags: 0

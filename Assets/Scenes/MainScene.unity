@@ -5004,7 +5004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5104152531583734631, guid: 71a80fa69d9a2944f9495418d458d854, type: 3}
-  enemiesCount: 5
+  enemiesCount: 1
   center: {x: 66.92, y: 2.05, z: -15.78}
   size: {x: 10, y: 10, z: 10}
   spawnPosition: {x: 0, y: 0, z: 0}

@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     public float sightDistance = 6f;
     private float distanceToGround;
+    [SerializeField]
+    public float knockbackStrength;
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
@@ -81,14 +83,28 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
             takeDamage();
             
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb = target.GetComponent<Rigidbody>();
+            //Vector3 direction = target.transform.position + transform.position;
+            Vector3 direction = target.transform.position * 2;
+            direction.y = 0;
+            rb.AddForce(-direction.normalized * knockbackStrength, ForceMode.Impulse);
+        }
     }
+
+    void OnCollisionExit(Collision collision)
+    {
+        stopMoving();
+    }*/
     bool isGrounded()
     {
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
