@@ -5004,7 +5004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5104152531583734631, guid: 71a80fa69d9a2944f9495418d458d854, type: 3}
-  enemiesCount: 1
+  enemiesCount: 3
   center: {x: 66.92, y: 2.05, z: -15.78}
   size: {x: 10, y: 10, z: 10}
   spawnPosition: {x: 0, y: 0, z: 0}
@@ -8870,7 +8870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f999ee912b0184a41902623cff83b700, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.054
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f999ee912b0184a41902623cff83b700, type: 3}
       propertyPath: m_LocalPosition.z
