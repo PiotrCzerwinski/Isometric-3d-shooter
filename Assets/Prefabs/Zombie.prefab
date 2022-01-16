@@ -1403,7 +1403,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   health: 3
-  minDistance: 3.5
+  stoppingDistance: 1
+  reachPlayerDistance: 10
+  sightDistance: 6
 --- !u!1 &5407120497737375691
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class GameSystem : MonoBehaviour
     public Vector3 center;
     public Vector3 size;
     public Vector3 spawnPosition;
+
     void Start()
     {
         enemiesCount = GameObject.FindGameObjectsWithTag("Enemy").Length;

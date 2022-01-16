@@ -7,14 +7,17 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody rb;
     private GameObject target;
+    private Vector3 forward;
     [SerializeField]
     public float movementSpeed = 0.5f;
     [SerializeField]
     public float health = 3f;
-    private Vector3 forward;
     [SerializeField]
-    public float minDistance = 2f;
-
+    public float stoppingDistance = 1f;
+    [SerializeField]
+    public float reachPlayerDistance = 10f;
+    [SerializeField]
+    public float sightDistance = 6f;
     private float distanceToGround;
     void Start()
     {
@@ -33,8 +36,14 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) >= minDistance)
+        if (Vector3.Distance(transform.position, target.transform.position) >= reachPlayerDistance)
             moveToPlayer();
+
+        else if (Vector3.Distance(transform.position, target.transform.position) <= sightDistance
+                    && Vector3.Distance(transform.position, target.transform.position) > stoppingDistance)
+            moveToPlayer();
+        else
+            stopMoving();
 
         if (!isGrounded())
         {
@@ -48,6 +57,11 @@ public class Enemy : MonoBehaviour
 
         Vector3 playerPosition = Vector3.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
         rb.MovePosition(playerPosition);
+        transform.LookAt(target.transform);
+    }
+
+    public void stopMoving() {
+        rb.velocity = Vector3.zero;
         transform.LookAt(target.transform);
     }
 
@@ -78,5 +92,11 @@ public class Enemy : MonoBehaviour
     bool isGrounded()
     {
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, sightDistance);
     }
 }
