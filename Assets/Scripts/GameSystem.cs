@@ -7,9 +7,8 @@ public class GameSystem : MonoBehaviour
 {   
     public GameObject enemyPrefab;
     [SerializeField]
-    public int enemiesCount;
-    private int currentEnemiesCount;
-    public Vector3 center;
+    public int targetEnemiesCount;
+    public int currentEnemiesCount;
     public Vector3 size;
     public Vector3 spawnPosition;
 
@@ -26,17 +25,19 @@ public class GameSystem : MonoBehaviour
             SceneManager.LoadScene(scene.name);
         }
         
-        InvokeRepeating("SpawnEnemy", 0f, 3f);
+        InvokeRepeating("SpawnEnemy", 0f, 1f);
     }
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(center, size);
+        Gizmos.DrawWireCube(transform.position, size);
     }
 
     private void SpawnEnemy() {
-        if (currentEnemiesCount < enemiesCount) { 
-            spawnPosition = center + new Vector3(Random.Range(-size.x / 2, size.x / 2),
+        if (currentEnemiesCount < targetEnemiesCount) {
+            spawnPosition = transform.position;
+            spawnPosition.y = 0.1f;
+            spawnPosition = spawnPosition + new Vector3(Random.Range(-size.x / 2, size.x / 2),
                 0.1f, Random.Range(-size.z / 2, size.z / 2));
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
             currentEnemiesCount++;

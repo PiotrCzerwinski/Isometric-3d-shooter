@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
         if (health == 0)
         {
             Destroy(gameObject);
-            gameManager.GetComponent<GameSystem>().enemiesCount--;
+            gameManager.GetComponent<GameSystem>().currentEnemiesCount--;
 
             
         }
