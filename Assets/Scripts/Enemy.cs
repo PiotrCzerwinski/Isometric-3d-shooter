@@ -74,8 +74,9 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             gameManager.GetComponent<GameSystem>().currentEnemiesCount--;
+            gameManager.GetComponent<GameSystem>().enemiesKilled++;
 
-            
+
         }
         else {
             health--;
@@ -110,10 +111,7 @@ public class Enemy : MonoBehaviour
     {
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
     }
-    private void OnTriggerStay(Collider other)
-    {
-        
-    }
+  
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

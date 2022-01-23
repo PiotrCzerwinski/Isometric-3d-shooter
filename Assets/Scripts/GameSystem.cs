@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSystem : MonoBehaviour
 {   
@@ -9,24 +9,22 @@ public class GameSystem : MonoBehaviour
     [SerializeField]
     public int targetEnemiesCount;
     public int currentEnemiesCount;
+    public int enemiesKilled = 0;
     public Vector3 size;
     public Vector3 spawnPosition;
+    public Text enemiesKilledText;
 
     void Start()
     {
         currentEnemiesCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R)) {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-        }
-        
         InvokeRepeating("SpawnEnemy", 0f, 5f);
     }
+
+    private void Update()
+    {
+        enemiesKilledText.text = enemiesKilled.ToString();
+    }
+
     /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
