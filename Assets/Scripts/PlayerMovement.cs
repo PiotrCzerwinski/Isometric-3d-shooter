@@ -38,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("speed", controller.velocity.magnitude);
         }
         //InvokeRepeating("printIsGrounded", 0f, 1f);
-
-        if (!isGrounded())
+        if (isGrounded())
         {
             Vector3 temp = transform.position;
             temp.y = 0.05f;

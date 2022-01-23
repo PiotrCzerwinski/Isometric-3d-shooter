@@ -79,7 +79,7 @@ public class Enemy : MonoBehaviour
         }
         else {
             health--;
-            Debug.Log("Taking damage");
+            //Debug.Log("Taking damage");
         }
 
     }
@@ -110,7 +110,10 @@ public class Enemy : MonoBehaviour
     {
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.1f);
     }
-
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
