@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Camera mainCamera;
     private Animator animator;
     private CharacterController controller;
     [SerializeField]
@@ -14,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        forward = Camera.main.transform.forward;
+        mainCamera = Camera.main;
+        forward =mainCamera.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
@@ -35,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
             //controller.SimpleMove(heading * movementSpeed);
             animator.SetFloat("speed", controller.velocity.magnitude);
         }
+        //InvokeRepeating("printIsGrounded", 0f, 1f);
 
         if (!isGrounded())
         {
@@ -45,7 +48,10 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("speed", controller.velocity.magnitude);
     }
-
+    void printIsGrounded()
+    {
+        Debug.Log(isGrounded());
+    }
     bool isGrounded() {
         return Physics.Raycast(transform.position, -Vector3.up, distanceToGround + 0.05f);
     }

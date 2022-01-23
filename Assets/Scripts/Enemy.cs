@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour
 {
     private GameObject gameManager;
-
+    private Camera mainCamera;
     private Rigidbody rb;
     private GameObject target;
     private Vector3 forward;
@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         target = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
-        forward = Camera.main.transform.forward;
+        mainCamera = Camera.main;
+        forward = mainCamera.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
     }
@@ -49,7 +50,7 @@ public class Enemy : MonoBehaviour
 
         if (!isGrounded())
         {
-            Vector3 temp = this.transform.position;
+            Vector3 temp = transform.position;
             temp.y = 0.05f;
             transform.position = temp;
         }

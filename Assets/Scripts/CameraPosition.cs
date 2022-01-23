@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraPosition : MonoBehaviour
 {
     public Transform player;
-    private Camera cam;
+    public Camera cam;
     private float minCameraSize = 3f;
     private float maxCameraSize = 14f;
     private float cameraSize = 4f;
@@ -15,7 +15,6 @@ public class CameraPosition : MonoBehaviour
     void Start()
     {
         offset = transform.position - player.transform.position;
-        cam = gameObject.GetComponentInChildren(typeof(Camera)) as Camera;
         cam.transform.LookAt(player.transform.position);
     }
 

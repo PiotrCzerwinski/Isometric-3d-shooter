@@ -1100,6 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1461257147}
+  cam: {fileID: 647180537}
   offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &208744716
 PrefabInstance:

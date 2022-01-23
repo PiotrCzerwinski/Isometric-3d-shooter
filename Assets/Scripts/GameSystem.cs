@@ -25,13 +25,13 @@ public class GameSystem : MonoBehaviour
             SceneManager.LoadScene(scene.name);
         }
         
-        InvokeRepeating("SpawnEnemy", 0f, 1f);
+        InvokeRepeating("SpawnEnemy", 0f, 5f);
     }
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, size);
-    }
+    }*/
 
     private void SpawnEnemy() {
         if (currentEnemiesCount < targetEnemiesCount) {
